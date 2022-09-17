@@ -1,2 +1,4 @@
 # k8scourse-artifacts
-Artifacts used in Kubernetes training courses
+
+This repository contains artifacts used in Rajware Kubernetes training courses.
+

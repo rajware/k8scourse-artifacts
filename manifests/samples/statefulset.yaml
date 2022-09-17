@@ -3,13 +3,13 @@ kind: Service
 metadata:
   name: rmq-hs
   labels:
-    day: five
+    day: day5
     sample: rmq-sts
 spec:
   type: ClusterIP
   clusterIP: None
   selector:
-    day: five
+    day: day5
     sample: rmq-sts
     layer: backend
   ports:
@@ -23,20 +23,20 @@ kind: StatefulSet
 metadata:
   name: rmq-sts
   labels:
-    day: five
+    day: day5
     sample: rmq-sts
 spec:
   serviceName: rmq-hs
   replicas: 2
   selector:
     matchLabels:
-      day: five
+      day: day5
       sample: rmq-sts
       layer: backend
   template:
     metadata:
       labels:
-        day: five
+        day: day5
         sample: rmq-sts
         layer: backend
     spec:
@@ -67,7 +67,7 @@ spec:
     - metadata:
         name: rmq-vol
         labels:
-          day: five
+          day: day5
           sample: rmq-sts
       spec:
         accessModes:
@@ -75,24 +75,23 @@ spec:
         resources:
           requests:
             storage: 1Gi
-        storageClassName: kuttiproject-local-delete
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: rmq-np
   labels:
-    day: five
+    day: day5
     sample: rmq-sts
 spec:
   type: NodePort
   selector:
-    day: five
+    day: day5
     sample: rmq-sts
     layer: backend
   ports:
     - name: management
       port: 15672
-      nodePort: 31300
+      nodePort: 31002
     - name: amqp
       port: 5672

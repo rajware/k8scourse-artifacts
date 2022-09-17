@@ -58,4 +58,4 @@ spec:
   ports:
     - name: probestest
       port: 8080
-      nodePort: 31000
+      nodePort: 31001

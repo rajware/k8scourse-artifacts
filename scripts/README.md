@@ -4,4 +4,4 @@ This directory contains scripts used during trainings. The raw forms are availab
 
 |sample|Description|URL|
 |---|---|---|
-|loader.sh|Hits a URL forever.|http://tiny.cc/rw-sample-dbapp-1|
+|loader.sh|Hits a URL forever.|http://re.rspl.net/k8s-script-loader|

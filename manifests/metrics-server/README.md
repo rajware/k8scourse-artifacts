@@ -8,5 +8,4 @@ The raw form of these files are available via shortened URLS, as follows:
 
 |Manifest|URL|
 |---|---|
-|metricsserver-0.3.6.yaml|http://tiny.cc/rw-metrics-server-1|
-|metricsserver-0.4.1.yaml|http://tiny.cc/rw-metrics-server-2|
+|metricsserver-0.6.1.yaml|http://re.rspl.net/k8s-metrics-server|

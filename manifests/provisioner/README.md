@@ -6,7 +6,7 @@ The raw form of these files are available via shortened URLS, as follows:
 
 |Manifest|URL|
 |---|---|
-|provisioner-0.12.yaml|http://go.rspl.net/k8s-provisioner|
+|provisioner-0.12.yaml|http://re.rspl.net/k8s-provisioner|
 
 
 

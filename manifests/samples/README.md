@@ -9,4 +9,5 @@ This directory contains samples used during trainings. The raw forms are availab
 |resources|Demonstrates resource requirements.|http://re.rspl.net/k8s-sample-resources|
 |probes|Demonstrates liveness and readiness probes using [probestest](https://github.com/rajch/ttws).|http://re.rspl.net/k8s-sample-probes|
 |statefulset|Demonstrates StatefulSet.|http://re.rspl.net/k8s-sample-statefulset|
+|ingress|Demonstrates Ingress.|http://re.rspl.net/k8s-sample-ingress|
 |hpa|Demonstrates HorizontalPodAutoScaler using [ldgen](https://github.com/rajch/ttws).|http://re.rspl.net/k8s-sample-hpa|

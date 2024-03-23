@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc2
+  labels:
+    day: day2
+    sample: sample1
+spec:
+  type: NodePort
+  selector:
+    day: day2
+    sample: sample1
+    layer: dep2
+  ports:
+    - name: www
+      port: 80
+      NodePort: 31000

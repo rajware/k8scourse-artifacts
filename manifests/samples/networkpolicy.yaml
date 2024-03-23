@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np1
+  labels:
+    day: day4
+    sample: networkpolicy
+spec:
+  policyTypes:
+    - Ingress
+  podSelector:
+    matchLabels:
+      day: day2
+      sample: sample1
+      layer: dep1
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              day: day2
+              sample: sample1
+              layer: dep2

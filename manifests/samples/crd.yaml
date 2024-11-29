@@ -1,0 +1,90 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: dbapps.k8s.rajware.net
+spec:
+  group: k8s.rajware.net
+  names:
+    kind: DbApp
+    listKind: DbAppList
+    plural: dbapps
+    singular: dbapp
+    shortNames:
+      - dba
+    categories:
+      - all
+  scope: Namespaced
+  versions:
+    - name: v1alpha1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                service:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum: 
+                        - NodePort
+                        - LoadBalancer
+                      default: NodePort
+                    nodePort:
+                      type: integer
+                      minimum: 30000
+                      maximum: 32767
+                      nullable: true
+                db:
+                  type: object
+                  properties:
+                    storageCapacity:
+                      type: string
+                      pattern: '^([0-9]+)([KMGT]i?)$'
+                    storageClassName:
+                      type: string
+                      nullable: true
+                    password:
+                      type: string
+                    secretKey:
+                      type: string
+                      nullable: true
+                    secretName:
+                      type: string
+                      nullable: true
+                  required:
+                    - storageCapacity
+                    - password
+              required:
+                - service
+                - db
+      additionalPrinterColumns:
+        - name: ServiceType
+          description: The type of Service that exposes the Adminer front-end
+          type: string
+          priority: 0
+          jsonPath: .spec.service.type
+        - name: DBCapacity
+          description: The storage capacity of the MySQL back-end
+          type: string 
+          priority: 0
+          jsonPath: .spec.db.storageCapacity
+        - name: ServiceNodePort
+          description: The node port of the service
+          type: integer
+          format: int32
+          priority: 1
+          jsonPath: .spec.service.nodePort
+        - name: DBPassword
+          description: The MySQL database password
+          type: string
+          format: password
+          priority: 1
+          jsonPath: .spec.db.password
+      selectableFields:
+        - jsonPath: .spec.service.type
+        - jsonPath: .spec.service.nodePort

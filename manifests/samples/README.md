@@ -13,12 +13,12 @@ This directory contains samples used during trainings. Some samples are availabl
 |day3/sample2/pvc1.yaml|sample2|Demonstrates a PersistentVolumeClaim.||
 |day3/dbapp/dbapp.yaml|dbapp|Demonstrates a full application.|http://re.rspl.net/k8s-sample-dbapp|
 |day3/secrets/secrets.yaml|secrets|Demonstrates Secret usage.|http://re.rspl.net/k8s-sample-secrets|
-|day3/networkpolicy/networkpolicy.yaml|networkpolicy|Demonstrates network policies.*|http://re.rspl.net/k8s-sample-networkpolicies|
+|day3/networkpolicy/networkpolicy.yaml|networkpolicy|Demonstrates network policies.|http://re.rspl.net/k8s-sample-networkpolicy|
 |day4/resources/resources.yaml|resources|Demonstrates resource requirements.|http://re.rspl.net/k8s-sample-resources|
 |day4/probes/probes.yaml|probes|Demonstrates liveness and readiness probes using [probestest](https://github.com/rajch/ttws).|http://re.rspl.net/k8s-sample-probes|
-|day4/affinities/nodeaffinity.yaml|affinities|Demonstrates node affinity.*|http://re.rspl.net/k8s-sample-nodeaffinity|
-|day4/affinities/podaffinity.yaml|affinities|Demonstrates pod affinity.*|http://re.rspl.net/k8s-sample-podaffinity|
-|day4/affinities/podantiaffinity.yaml|affinities|Demonstrates pod anti-affinity.*|http://re.rspl.net/k8s-sample-podantiaffinity|
+|day4/affinities/nodeaffinity.yaml|affinities|Demonstrates node affinity.|http://re.rspl.net/k8s-sample-nodeaffinity|
+|day4/affinities/podaffinity.yaml|affinities|Demonstrates pod affinity.|http://re.rspl.net/k8s-sample-podaffinity|
+|day4/affinities/podantiaffinity.yaml|affinities|Demonstrates pod anti-affinity.|http://re.rspl.net/k8s-sample-podantiaffinity|
 |day4/statefulset/statefulset.yaml|statefulset|Demonstrates StatefulSet.|http://re.rspl.net/k8s-sample-statefulset|
 |day5/ingress/ingress.yaml|ingress|Demonstrates Ingress.|http://re.rspl.net/k8s-sample-ingress|
 |day5/crd/crd.yaml|crd|Demonstrates custom resource definitions|http://re.rspl.net/k8s-sample-crd|

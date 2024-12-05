@@ -1,7 +1,7 @@
 # scripts
 
-This directory contains scripts used during trainings. The raw forms are available via shortened URLs.
+This directory contains scripts used during trainings. Some scripts are available for download via shortened URLs.
 
-|sample|Description|URL|
+|Script|Description|URL|
 |---|---|---|
 |loader.sh|Hits a URL forever.|http://re.rspl.net/k8s-script-loader|

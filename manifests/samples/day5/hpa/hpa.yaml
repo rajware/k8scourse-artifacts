@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep10
+  labels:
+    day: day5
+    sample: horizontalpodautoscaler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      day: day5
+      sample: horizontalpodautoscaler
+      layer: dep10
+  template:
+    metadata:
+      labels:
+        day: day5
+        sample: horizontalpodautoscaler
+        layer: dep10
+    spec:
+      containers:
+        - name: c1
+          image: quay.io/rajch/ldgen:0.2.1
+          resources:
+            requests:
+              cpu: 200m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    day: day5
+    sample: horizontalpodautoscaler
+spec:
+  type: NodePort
+  selector:
+    day: day5
+    sample: horizontalpodautoscaler
+    layer: dep10
+  ports:
+    - name: web
+      port: 8080
+      nodePort: 31003
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: dep10-scaler
+  labels:
+    sample: horizontalpodautoscaler
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: dep10
+  targetCPUUtilizationPercentage: 50
+  maxReplicas: 6
+  minReplicas: 1

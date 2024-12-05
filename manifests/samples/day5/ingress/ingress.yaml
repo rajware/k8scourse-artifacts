@@ -1,0 +1,45 @@
+# To demonstrate this:
+# - Install the nginx ingress controller from nginx, that
+#   is available from:
+#     oci://ghcr.io/nginxinc/charts/nginx-ingress
+# - If LoadBalancer services are not available,  set the
+#   controller.service.type value to "NodePort", and the
+#   controller.service.externalTrafficPolicy value to 
+#   "Cluster" when installing the controller.
+#   E.g.:-
+#     helm install ic1 oci://ghcr.io/nginxinc/charts/nginx-ingress --version 1.4.2 --set controller.service.type=NodePort,controller.service.externalTrafficPolicy=Cluster
+# - Either ensure that 'applications.in' resolves to the
+#   external IP for the ingress controller service, or the
+#   IP of any node in the cluster if using NodePort.
+# - Ensure the controller has installed an IngressClass 
+#   called 'nginx' using:
+#     kubectl get serviceclasses
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress1
+  labels:
+    day: day5
+    sample: ingress 
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx # Change this if needed
+  rules:
+  - host: applications.in # Change this if needed
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/dbapp"
+        backend:
+          service:
+            name: fe-svc
+            port: 
+              number: 8080
+      - pathType: Prefix
+        path: "/apache"
+        backend:
+          service:
+            name: svc2
+            port: 
+              number: 80

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep3
+  labels:
+    day: day3
+    sample: sample2
+spec:
+  selector:
+    matchLabels:
+      day: day3
+      sample: sample2
+      layer: dep3      
+  template:
+    metadata:
+      labels:
+        day: day3
+        sample: sample2
+        layer: dep3      
+    spec:
+      volumes:
+        - name: vol1
+          hostPath:
+            type: DirectoryOrCreate
+            path: /kubevols/vol1
+          # persistentVolumeClaim:
+          #   claimName: pvc1
+      containers:
+        - name: c1
+          image: nginx:alpine
+          volumeMounts:
+            - name: vol1
+              mountPath: /data

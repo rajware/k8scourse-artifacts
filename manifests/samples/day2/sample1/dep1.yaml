@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep1
+  labels:
+    day: day2
+    sample: sample1
+spec:
+  selector:
+    matchLabels:
+      day: day2
+      sample: sample1
+      layer: dep1      
+  template:
+    metadata:
+      labels:
+        day: day2
+        sample: sample1
+        layer: dep1      
+    spec:
+      containers:
+        - name: c1
+          image: nginx:alpine
+        - name: c2
+          image: quay.io/rajch/ics:0.2.1

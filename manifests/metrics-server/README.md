@@ -4,7 +4,7 @@ The manifests in this directory mirror the manifests from the project https://gi
 
 We add the `--kubelet-insecure-tls` flag to the deployment, to allow the metrics server to work correctly in kubeadm-created clusters. WARNING: This is insecure, and should not be done in production clusters. We do it because we use these manifests only for training.
 
-The raw form of these files are available via shortened URLS, as follows:
+Some of these manifests are available for download via shortened URLS, as follows:
 
 |Manifest|URL|
 |---|---|

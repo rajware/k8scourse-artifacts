@@ -1,0 +1,56 @@
+# This demonstrates node affinity scheduling rules for a pod.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep6
+  labels:
+    day: day4
+    sample: affinities
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      day: day4
+      sample: affinities
+      layer: dep6
+  template:
+    metadata:
+      labels:
+        day: day4
+        sample: affinities
+        layer: dep6
+    spec:
+      containers:
+        - name: c1
+          image: nginx:alpine
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - preference:
+                matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - satyabhama
+              weight: 75
+            - preference:
+                matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - krishna
+              weight: 50
+            - preference:
+                matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - radha
+              weight: 25
+          # requiredDuringSchedulingIgnoredDuringExecution:
+          #   nodeSelectorTerms:
+          #     - matchExpressions:
+          #         - key: kubernetes.io/hostname
+          #           operator: In
+          #           values:
+          #             - satyabhama

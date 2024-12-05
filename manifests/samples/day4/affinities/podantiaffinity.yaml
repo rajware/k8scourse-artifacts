@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep8
+  labels:
+    day: day4
+    sample: affinities
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      day: day4
+      sample: affinities
+      layer: dep8
+  template:
+    metadata:
+      labels:
+        day: day4
+        sample: affinities
+        layer: dep8
+    spec:
+      containers:
+        - name: c1
+          image: nginx:alpine
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    day: day2
+                    sample: sample1
+                    layer: dep1
+                topologyKey: kubernetes.io/hostname
+              weight: 75
+            - podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    day: day2
+                    sample: sample1
+                    layer: dep2
+                topologyKey: kubernetes.io/hostname  
+              weight: 80          
+          # requiredDuringSchedulingIgnoredDuringExecution:
+          #   - labelSelector:
+          #       matchLabels:
+          #         day: day2
+          #         sample: sample1
+          #         layer: dep2
+          #     topologyKey: kubernetes.io/hostname

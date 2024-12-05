@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep7
+  labels:
+    day: day4
+    sample: affinities
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      day: day4
+      sample: affinities
+      layer: dep7
+  template:
+    metadata:
+      labels:
+        day: day4
+        sample: affinities
+        layer: dep7
+    spec:
+      containers:
+        - name: c1
+          image: nginx:alpine
+      affinity:
+        podAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    day: day3
+                    sample: secrets
+                    layer: dep4
+                topologyKey: kubernetes.io/hostname
+              weight: 75
+            - podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    day: day2
+                    sample: sample1
+                    layer: dep2
+                topologyKey: kubernetes.io/hostname  
+              weight: 50          
+          # requiredDuringSchedulingIgnoredDuringExecution:
+          #   - labelSelector:
+          #       matchLabels:
+          #         day: day2
+          #         sample: sample1
+          #         layer: dep2
+          #     topologyKey: kubernetes.io/hostname

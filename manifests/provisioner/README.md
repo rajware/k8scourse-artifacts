@@ -2,7 +2,7 @@
 
 The manifests in this directory mirror the provisioner manifests from the project https://github.com/kuttiproject/provisioner-localvolume. Only selected versions are mirrored, and may be slightly modified for trainings.
 
-The raw form of these files are available via shortened URLS, as follows:
+Some of these manifests are available for download via shortened URLS, as follows:
 
 |Manifest|URL|
 |---|---|

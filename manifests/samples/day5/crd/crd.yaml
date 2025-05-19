@@ -38,7 +38,7 @@ spec:
                     "type":
                       type: string
                       description: |
-                        The type of Service that exposes the Adminer front-end. Can be 'NodePort' or 'LoadBalacer'. Default is 'NodePort.'
+                        The type of Service that exposes the Adminer front-end. Can be 'NodePort' or 'LoadBalancer'. Default is 'NodePort.'
                       enum: 
                         - NodePort
                         - LoadBalancer
@@ -52,7 +52,7 @@ spec:
                       nullable: true
                 db:
                   type: object
-                  description: Properties to configure the Service that exposes the MySQL front-end.
+                  description: Properties to configure the Service that exposes the MySQL back-end.
                   properties:
                     storageCapacity:
                       type: string

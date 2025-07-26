@@ -6,7 +6,7 @@ Some of these manifests are available for download via shortened URLS, as follow
 
 |Manifest|URL|
 |---|---|
-|provisioner-0.2.0.yaml|http://re.rspl.net/k8s-provisioner|
+|provisioner-0.2.2.yaml|http://re.rspl.net/k8s-provisioner|
 
 
 
